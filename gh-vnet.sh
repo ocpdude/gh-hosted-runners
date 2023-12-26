@@ -44,6 +44,12 @@ echo Create network settings resource $NETWORK_SETTINGS_RESOURCE_NAME
 
 # Safely remove your configuration
 echo
-echo To clean up and delete resources run the following commands
+echo Remove GitHub resources first
+echo 1. Remove the GitHub Runners.
+echo 2. Remove the GitHub Runner Group.
+echo 3. Remove the Host Networking Configuration.
+echo Remove Azure resources by running the following commands
+echo 4. Remove Azure Network Settings
 echo az resource delete --ids /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/GitHub.Network/networkSettings/$NETWORK_SETTINGS_RESOURCE_NAME
+echo 5. Remove the Azure Resource Group
 echo az group delete --resource-group $RESOURCE_GROUP_NAME 
