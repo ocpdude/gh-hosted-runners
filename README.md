@@ -2,7 +2,7 @@
 See YouTube Video https://youtu.be/mg0pMXfDkPw
 
 
-Included is the script I used for adding the networking services [gh-vnet.sh](https://github.com/ocpdude/gh-hosted-runners/blob/main/gh-vnet.sh)
+Included is the script I used for adding the networking services [gh-vnet.sh](https://github.com/ocpdude/gh-hosted-runners/blob/main/gh-vnet.sh), I've also now included a .bicep script for automating the GitHub Self-Hosted runners URL's in [actions-firewall-deployment.bicep](https://github.com/ocpdude/gh-hosted-runners/blob/main/actions-firewall-deployment.bicep).
 
 Links
 - [About GitHub-hosted runners in your Azure Virtual Network](https://docs.github.com/en/enterprise-cloud@latest/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-using-github-hosted-runners-in-your-azure-virtual-network) 
