@@ -22,6 +22,10 @@ export NETWORK_SETTINGS_RESOURCE_NAME=YOUR_NETWORK_SETTINGS_RESOURCE_NAME
 export DATABASE_ID=YOUR_DATABASE_ID
 export SUBSCRIPTION_ID=YOUR_SUBSCRIPTION_ID
 
+# After the video, I created a .bicep file to automate applying the group/rules, please see
+# actions-firewall-deploymnent.bicep (save it locally).
+export POLICY=YOUR_FIREWALL_POLICY
+
 echo
 echo login to Azure
 . az login --output none
@@ -41,6 +45,10 @@ echo Delegate subnet to GitHub.Network/networkSettings
 echo
 echo Create network settings resource $NETWORK_SETTINGS_RESOURCE_NAME
 . az resource create --resource-group $RESOURCE_GROUP_NAME  --name $NETWORK_SETTINGS_RESOURCE_NAME --resource-type GitHub.Network/networkSettings --properties "{ \"location\": \"$AZURE_LOCATION\", \"properties\" : {  \"subnetId\": \"/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME\", \"organizationId\": \"$DATABASE_ID\" }}" --is-full-object --output table --query "{GitHubId:tags.GitHubId, name:name}" --api-version 2023-11-01-preview
+
+echo
+echo Deploy the Azure firewall policy
+. az az deployment group create --resource-group $RESOURCE_GROUP_NAME --template-file ./actions-firewall-deployment.bicep --parameters name=$POLICY/GitHubApplicationRuleCollectionGroup subnet=$SUBNET_PREFIX
 
 # Safely remove your configuration
 echo
