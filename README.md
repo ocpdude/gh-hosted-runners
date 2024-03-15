@@ -2,7 +2,7 @@
 
 This repository contains the scripts and templates for configuring GitHub Hosted Runners with Azure Firewall and Network Security Group (NSG).
 
-This documentataion should _always_ be referred to from the [official documentation](https://docs.github.com/en/enterprise-cloud@latest/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners) as the source of truth.
+This documentation should _always_ be referred to from the [official documentation](https://docs.github.com/en/enterprise-cloud@latest/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners) as the source of truth.
 
 Please note that this is for GitHub Enterprise Cloud only.
 
