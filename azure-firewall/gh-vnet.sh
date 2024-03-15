@@ -50,7 +50,7 @@ echo
 echo Deploy the Azure firewall policy
 . az az deployment group create --resource-group $RESOURCE_GROUP_NAME --template-file ./actions-firewall-deployment.bicep --parameters name=$POLICY/GitHubApplicationRuleCollectionGroup subnet=$SUBNET_PREFIX
 
-# Safely remove your configuration
+# OCPdude added to safely remove your configuration
 echo
 echo Remove GitHub resources first
 echo 1. Remove the GitHub runner
@@ -58,6 +58,6 @@ echo 2. Remove the GitHub runner group
 echo 3. Remove the Hosted compute networking
 echo Remove Azure resources by running the following commands
 echo 4. Remove Azure network settings resource
-echo az resource delete --ids /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/GitHub.Network/networkSettings/$NETWORK_SETTINGS_RESOURCE_NAME
+echo . az resource delete --ids /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/GitHub.Network/networkSettings/$NETWORK_SETTINGS_RESOURCE_NAME
 echo 5. Remove the Azure resource group
-echo az group delete --resource-group $RESOURCE_GROUP_NAME 
+echo . az group delete --resource-group $RESOURCE_GROUP_NAME 
